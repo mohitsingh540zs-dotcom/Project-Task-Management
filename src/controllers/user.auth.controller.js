@@ -6,13 +6,6 @@ export const register = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
   try {
-    if (!firstName || !lastName || !email || !password) {
-      return res.status(400).json({
-        success: false,
-        message: "Please provide all required fields",
-      });
-    }
-
     const normalizedEmail = email.trim().toLowerCase();
 
     const user = await User.findOne({ email: normalizedEmail });
