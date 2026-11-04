@@ -1,4 +1,4 @@
-import { User } from "../models/User";
+import { User } from "../models/User.js";
 
 export const authMiddleware = async (req, res, next) => {
   const token = req.cookies.accessToken;

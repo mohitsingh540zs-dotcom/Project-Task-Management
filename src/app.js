@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/user.auth.routes.js";
+import projectRouter from "./routes/project.routes.js";
 
 const app = express();
 
@@ -23,6 +24,8 @@ app.get("/health", (_, res) => {
 });
 
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/project', projectRouter);
+
 
 app.use((err, req, res, next) => {
   return res.status(err.statusCode || 500).json({
